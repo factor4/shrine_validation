@@ -10,6 +10,7 @@ class Gallery < ApplicationRecord
   def is_admin
     # debugger
     #
+    # In Rails 6.0 and 6.1
     # Existing and/or new record:
     # self -> #<Gallery:0x00007fcf57877840 id: 1, name: "Test", ...>
     # self.by_admin -> true or false depending on checkbox params
