@@ -17,7 +17,7 @@
   </div>
 
   <% if form.object.file.present? && form.object.errors[:file].blank? %>
-    <%= image_tag form.object.file_url, alt: form.object.alt, style: 'width:100px' %>
+    <%= image_tag form.object.file_url, alt: '', style: 'width:100px' %>
   <% end %>
 
   <div class="field">

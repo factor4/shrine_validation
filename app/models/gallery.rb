@@ -3,8 +3,6 @@ class Gallery < ApplicationRecord
   validates :name, presence: true
   validates :name, length: { minimum: 5 }, unless: :is_admin
 
-  attr_accessor :by_admin
-
   include PictureUploader::Attachment(:file)
 
   private
@@ -14,9 +12,9 @@ class Gallery < ApplicationRecord
     #
     # Existing and/or new record:
     # self -> #<Gallery:0x00007fcf57877840 id: 1, name: "Test", ...>
-    # self.by_admin -> "0" or "1" depending on checkbox
+    # self.by_admin -> true or false depending on checkbox params
 
-    by_admin == '1'
+    by_admin?
   end
 
 end

@@ -1,8 +1,8 @@
 class PictureUploader < Shrine
   plugin :determine_mime_type, analyzer: :marcel
   Attacher.validate do
-    debugger
-    if record.by_admin == '1'
+    # debugger
+    if record.by_admin?
       validate_extension ['jpg','jpeg','svg']
       validate_mime_type ['image/jpeg','image/svg+xml']
     else
@@ -17,4 +17,8 @@ end
 
 # Neuer Datensatz, by_admin: checked or not
 # record -> #<Gallery:0x00007feb53a27628 id: nil, name: "Test New", file_data: "{\"id\":\"3ca4e2a220a631d8c0a0147dcdbadf32.svg\",\"storage\":\"cache\",\"metadata\":{\"filename\":\"test.svg\",\"size\":3124,\"mime_type\":\"image/svg+xml\",\"width\":72,\"height\":48}}", ...>
-# record.by_admin -> nil # always
+# record.by_admin -> false # always
+
+# Bestehender Datensatz, by_admin: checked or not
+# record -> #<Gallery:0x00007feb53a27628 id: nil, name: "Test New", file_data: "{\"id\":\"3ca4e2a220a631d8c0a0147dcdbadf32.svg\",\"storage\":\"cache\",\"metadata\":{\"filename\":\"test.svg\",\"size\":3124,\"mime_type\":\"image/svg+xml\",\"width\":72,\"height\":48}}", ...>
+# record.by_admin -> true or false # depending on the attribute in the DB and not the assigned one through the form params.
