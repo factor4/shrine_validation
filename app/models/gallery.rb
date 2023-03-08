@@ -7,6 +7,13 @@ class Gallery < ApplicationRecord
 
   include PictureUploader::Attachment(:file)
 
+  # def file=(attachment)
+  #   # This sets the context[:by_admin] but is always false.
+  #   # Looks like the params are also not fully set here.
+  #   file_attacher.context[:by_admin] = is_admin
+  #   super(attachment)
+  # end
+
   private
 
   def is_admin
