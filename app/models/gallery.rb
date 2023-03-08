@@ -19,10 +19,10 @@ class Gallery < ApplicationRecord
   def is_admin
     # debugger
     #
-    # In Rails 6.0 and 6.1
-    # Existing and/or new record:
-    # self -> #<Gallery:0x00007fcf57877840 id: 1, name: "Test", ...>
-    # self.by_admin -> "0" or "1" depending on checkbox
+    # In Rails 6.0 and 6.1 / Ruby 2.7 and 3.0
+    # Existing or new record:
+    # self -> #<Gallery:0x00007fcf57877840 id: [1|nil], name: "Test", ...>
+    # self.by_admin -> "0" or "1" depending on checkbox = expected behavior
 
     by_admin == '1'
   end

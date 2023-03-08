@@ -65,6 +65,9 @@ class GalleriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gallery_params
+      ######################################################
+      # WARNING Allow :by_admin just for testing purposes!!!
+      ######################################################
       params.require(:gallery).permit(:name, :file, :by_admin)
     end
 end
